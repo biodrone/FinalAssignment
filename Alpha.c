@@ -41,7 +41,7 @@ void push(struct stack *s , int num)
     }
 }
 
-int pop(struct stack *s)
+int pop(struct stack *s) //CHANGE THIS SO THAT IS POPS FROM THE FRONT NOT THE BACK
 { // -1 returned if stack empty.
 	if (s -> top > 0)
 	{
@@ -56,11 +56,14 @@ void print (struct stack *s)
 	int i;
 
 	printf("\n-------------------\n");
+    //if there's taxis in the stack
 	if( s -> top > 0 )
 		{
+        //print out the position and number of each taxi
 		for(i = 0; i < s -> top ; i++)
 			printf("Pos - %d -- Num - %d\n", s -> a[i] + 1, s -> n[i]);
 		}
+    //if it's empty
 	else printf("EMPTY\n");
     printf("-------------------\n");
 }
@@ -86,6 +89,7 @@ int showMenu(struct stack *s)
 {
     int selection, num, search;
     
+    //show the menu structure
     printf("\n#####################\n");
     printf("1 - Taxi Arrives\n");
     printf("2 - Taxi Departs\n");
@@ -93,8 +97,11 @@ int showMenu(struct stack *s)
     printf("4 - Find a Taxi\n");
     printf("0 - Exit\n");
     printf("#####################\n");
+    //read the users choice
     scanf("%d", &selection);
     
+    //process the users choice
+    //MOVE THIS INTO IT'S OWN FUNCTION IN THE BETA
     switch(selection)
     {
         case 1:
@@ -104,7 +111,7 @@ int showMenu(struct stack *s)
             push(s, num);
             break;
         case 2:
-            //do taxi depart stuffs
+            //pop a taxi
             printf("Next Taxi: %d", pop(s));
             break;
         case 3:
@@ -142,15 +149,16 @@ int main()
         scanf("%d", &num);
         push(&st1, num);
     }
-
+    
+    //run the menu while the user doesn't want to exit
     while (selection != 0)
     {
         selection = showMenu(&st1);
-        printf("Press enter to continue...");
+        printf("Press enter to continue..."); //THIS BIT DOESN'T WORK!!
         char c = getchar();
         while (c != '\n')
         {
-            c = getchar();
+            c = getchar(); //should wait for the user to press enter but doesn't
         }
     }
     
