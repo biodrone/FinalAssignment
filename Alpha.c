@@ -13,6 +13,7 @@ int pop(struct stack *s);
 void print (struct stack *s);
 int getTaxis();
 int showMenu(struct stack *s);
+int findTaxi();
     
 struct stack
 {
@@ -85,6 +86,19 @@ int getTaxis()
     return taxis;
 }
 
+int findTaxi(int a[], int num_elements, int value)
+{
+   int i;
+   for (i=0; i<num_elements; i++)
+   {
+	 if (a[i] == value)
+	 {
+	    return(value); // it was found
+	 }
+   }
+   return(-1); // if it was not found
+}
+
 int showMenu(struct stack *s)
 {
     int selection, num, search;
@@ -121,6 +135,7 @@ int showMenu(struct stack *s)
             //search in the numbers array
             printf("What is the taxi's number?");
             scanf("%d", &search);
+            findTaxi(); //FIX DIS SHIT
             break;
         case 0:
             printf("Exiting...\n");
