@@ -115,10 +115,10 @@ int showMenu(struct stack *s)
             printf("Next Taxi: %d", pop(s));
             break;
         case 3:
-            print(s); //somethings not working, push and pop dont show up when i print the stack
+            print(s);
             break;
         case 4:
-            //find the taxi stuffs
+            //search in the numbers array
             printf("What is the taxi's number?");
             scanf("%d", &search);
             break;
@@ -154,7 +154,8 @@ int main()
     while (selection != 0)
     {
         selection = showMenu(&st1);
-        printf("Press enter to continue..."); //THIS BIT DOESN'T WORK!!
+        //make the press enter thing work in the beta
+        printf("Press enter to continue...");
         char c = getchar();
         while (c != '\n')
         {
