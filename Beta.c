@@ -179,10 +179,10 @@ int main()
         //make the press enter thing work in the beta
         printf("Press enter to continue...");
         char *cp, buff[80]; 
-    do
-        { 
+    do //capture the enter key
+        {
         cp = fgets(buff, sizeof(buff), stdin); 
-        } while (cp && *cp != '\n'); 
+        } while (cp && *cp != '\n'); //check buffer and pointer
     }
 	return 0;
 }
