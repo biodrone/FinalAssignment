@@ -1,7 +1,7 @@
-//////////////////////
-//Taxi Rank Program//
-//By Joshua Jacobs//
-///////////////////
+/*******************/
+/*Taxi Rank Program*/
+/*By Joshua Jacobs**/
+/*******************/
 
 #include <stdio.h>
 #define MAX_SIZE 6
@@ -24,6 +24,7 @@ struct stack
 
 void init(struct stack *s)
 {
+    //initialise the stack
 	s -> top = 0;
 }
 
@@ -93,7 +94,7 @@ int findTaxi(int a[], int num_elements, int value)
    {
 	 if (a[i] == value)
 	 {
-	    return(value); // it was found
+	    return(i); // it was found
 	 }
    }
    return(-1); // if it was not found
@@ -101,7 +102,7 @@ int findTaxi(int a[], int num_elements, int value)
 
 int showMenu(struct stack *s)
 {
-    int selection, num, search;
+    int selection, num, search, found;
     
     //show the menu structure
     printf("\n#####################\n");
@@ -135,7 +136,12 @@ int showMenu(struct stack *s)
             //search in the numbers array
             printf("What is the taxi's number?");
             scanf("%d", &search);
-            findTaxi(); //FIX DIS SHIT
+            found = findTaxi(s -> n[], MAX_SIZE, search);
+            if (found != -1)
+            {
+                printf("That Taxi is Number %d", found + 1);
+            }
+            else printf("That Taxi is Not in The Rank!");
             break;
         case 0:
             printf("Exiting...\n");
@@ -177,6 +183,5 @@ int main()
             c = getchar(); //should wait for the user to press enter but doesn't
         }
     }
-    
 	return 0;
 }
