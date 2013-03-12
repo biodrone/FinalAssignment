@@ -174,16 +174,15 @@ int main()
     //run the menu while the user doesn't want to exit
     while (selection != 0)
     {
+        
         selection = showMenu(&st1);
         //make the press enter thing work in the beta
         printf("Press enter to continue...");
-        scanf("%c");
-        
-        //char c = getchar();
-        //while (c != '\n')
-        //{
-        //    c = getchar(); //should wait for the user to press enter but doesn't
-        //}
+        char *cp, buff[80]; 
+    do
+        { 
+        cp = fgets(buff, sizeof(buff), stdin); 
+        } while (cp && *cp != '\n'); 
     }
 	return 0;
 }
