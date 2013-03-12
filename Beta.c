@@ -14,7 +14,7 @@ void print (struct stack *s);
 int getTaxis();
 int showMenu(struct stack *s);
 int findTaxi();
-    
+
 struct stack
 {
 	int a[MAX_SIZE]; //for position
@@ -177,11 +177,13 @@ int main()
         selection = showMenu(&st1);
         //make the press enter thing work in the beta
         printf("Press enter to continue...");
-        char c = getchar();
-        while (c != '\n')
-        {
-            c = getchar(); //should wait for the user to press enter but doesn't
-        }
+        scanf("%c");
+        
+        //char c = getchar();
+        //while (c != '\n')
+        //{
+        //    c = getchar(); //should wait for the user to press enter but doesn't
+        //}
     }
 	return 0;
 }
