@@ -46,9 +46,9 @@ void push(struct stack *s , int num)
 int pop(struct stack *s) //CHANGE THIS SO THAT IS POPS FROM THE FRONT NOT THE BACK
 { // -1 returned if stack empty.
     int i;
-	if (s -> top > 0)
+	if (s -> top < 6)
 	{
-        for (i = 1; i <= 6; i++)
+        for (i = 1; i < 6; i++)
         {
             s -> a[i - 1] = s -> a[i];
             s -> n[i - 1] = s -> n[i];
@@ -133,6 +133,7 @@ int showMenu(struct stack *s)
             break;
         case 2:
             //pop a taxi
+            s -> top = 0;
             pop(s);
             printf("Next Taxi: %d", s -> n[0]);
             break;
@@ -166,7 +167,6 @@ int main()
 	int taxis = 0, i, selection = 1, num;
 	
 	init(&st1);
-    st1.top = 0;
     //get the number of taxis
     taxis = getTaxis();
     
