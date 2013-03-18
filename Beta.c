@@ -122,7 +122,6 @@ int showMenu(struct stack *s)
     scanf("%d", &selection);
     
     //process the users choice
-    //MOVE THIS INTO IT'S OWN FUNCTION IN THE BETA
     switch(selection)
     {
         case 1:
