@@ -100,10 +100,10 @@ int findTaxi(int a[], int num_elements, int value)
    {
 	 if (a[i] == value)
 	 {
-	    return(i); // it was found
+	    return(i); //it was found
 	 }
    }
-   return(-1); // if it was not found
+   return(-1); //it was not found
 }
 
 int showMenu(struct stack *s)
