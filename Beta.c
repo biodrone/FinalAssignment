@@ -4,7 +4,8 @@
 /*******************/
 
 //CHANGES
-//MAKE THE STACK/QUEUE TRANSITION
+//CALL SOMETHING HERE TO REMOVE NULL VALS FROM THE QUEUE
+//MAKE ADDITIONAL HEADER FILES SO YOU CAN INCLUDE THEM IN THE PROGRAM
 
 #include <stdio.h>
 #define MAX_SIZE 6
@@ -57,6 +58,7 @@ int pop(struct queue *s) //CHANGE THIS SO THAT IS POPS FROM THE FRONT NOT THE BA
             s -> n[i - 1] = s -> n[i];
         }
             s -> top++;
+        //CALL SOMETHING HERE TO REMOVE NULL VALS FROM THE QUEUE
             return(s -> a[s -> top]);
 	}
 	else return -1;
