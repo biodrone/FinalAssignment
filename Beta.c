@@ -7,30 +7,30 @@
 #define MAX_SIZE 6
 
 //function definitions
-void init(struct stack *s);
-void push(struct stack *s , int num);
-int pop(struct stack *s);
-void print (struct stack *s);
+void init(struct queue *s);
+void push(struct queue *s , int num);
+int pop(struct queue *s);
+void print (struct queue *s);
 int getTaxis();
-int showMenu(struct stack *s);
+int showMenu(struct queue *s);
 int findTaxi();
 
-struct stack
+struct queue
 {
 	int a[MAX_SIZE]; //for position
     int n[MAX_SIZE]; //for number
 	int top;
 };
 
-void init(struct stack *s)
+void init(struct queue *s)
 {
-    //initialise the stack
+    //initialise the queue
 	s -> top = 0;
 }
 
-void push(struct stack *s , int num)
+void push(struct queue *s , int num)
 {
-    //make sure the stack isn't full
+    //make sure the queue isn't full
 	if(s -> top < MAX_SIZE) 
 	{
 		s -> a[s->top] = s -> top; //add taxi position
@@ -43,8 +43,8 @@ void push(struct stack *s , int num)
     }
 }
 
-int pop(struct stack *s) //CHANGE THIS SO THAT IS POPS FROM THE FRONT NOT THE BACK
-{ // -1 returned if stack empty.
+int pop(struct queue *s) //CHANGE THIS SO THAT IS POPS FROM THE FRONT NOT THE BACK
+{ // -1 returned if queue empty.
     int i;
 	if (s -> top < 6)
 	{
@@ -59,12 +59,12 @@ int pop(struct stack *s) //CHANGE THIS SO THAT IS POPS FROM THE FRONT NOT THE BA
 	else return -1;
 }
 
-void print (struct stack *s)
+void print (struct queue *s)
 {
 	int i;
 
 	printf("\n-------------------\n");
-    //if there's taxis in the stack
+    //if there's taxis in the queue
 	if( s -> top > 0 )
 		{
         //print out the position and number of each taxi
@@ -106,7 +106,7 @@ int findTaxi(int a[], int num_elements, int value)
    return(-1); //it was not found
 }
 
-int showMenu(struct stack *s)
+int showMenu(struct queue *s)
 {
     int selection, num, search, found;
     
@@ -134,7 +134,7 @@ int showMenu(struct stack *s)
             //pop a taxi
             s -> top = 0;
             pop(s);
-            printf("Next Taxi: %d", s -> n[0]);
+            printf("Next Taxi: %d\n", s -> n[0]);
             break;
         case 3:
             print(s);
@@ -146,9 +146,9 @@ int showMenu(struct stack *s)
             found = findTaxi(s -> n[], MAX_SIZE, search);
             if (found != -1)
             {
-                printf("That Taxi is Number %d", found + 1);
+                printf("That Taxi is Number %d\n", found + 1);
             }
-            else printf("That Taxi is Not in The Rank!");
+            else printf("That Taxi is Not in The Rank!\n");
             break;
         case 0:
             printf("Exiting...\n");
@@ -162,7 +162,7 @@ int showMenu(struct stack *s)
 
 int main()
 {
-	struct stack st1;
+	struct queue st1;
 	int taxis = 0, i, selection = 1, num;
 	
 	init(&st1);
