@@ -3,6 +3,9 @@
 /*By Joshua Jacobs**/
 /*******************/
 
+//CHANGES
+//MAKE THE STACK/QUEUE TRANSITION
+
 #include <stdio.h>
 #define MAX_SIZE 6
 
@@ -46,9 +49,9 @@ void push(struct queue *s , int num)
 int pop(struct queue *s) //CHANGE THIS SO THAT IS POPS FROM THE FRONT NOT THE BACK
 { // -1 returned if queue empty.
     int i;
-	if (s -> top < 6)
+	if (s -> top < MAX_SIZE)
 	{
-        for (i = 1; i < 6; i++)
+        for (i = 1; i < MAX_SIZE; i++)
         {
             s -> a[i - 1] = s -> a[i];
             s -> n[i - 1] = s -> n[i];
