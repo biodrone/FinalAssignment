@@ -135,7 +135,6 @@ int showMenu(struct queue *s)
             break;
         case 2:
             //pop a taxi
-            s -> top = 0;
             pop(s);
             printf("Next Taxi: %d\n", s -> n[0]);
             break;
