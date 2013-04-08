@@ -130,7 +130,7 @@ int showMenu(struct queue *s)
     switch(selection)
     {
         case 1:
-            //do taxi arrive stuffs
+            //add a taxi to the rank
             printf("What is the taxi's number?\n");
             scanf("%d", &num);
             push(s, num);
@@ -141,6 +141,7 @@ int showMenu(struct queue *s)
             printf("Next Taxi: %d\n", s -> n[0]);
             break;
         case 3:
+            //print the rank
             print(s);
             break;
         case 4:
@@ -155,6 +156,7 @@ int showMenu(struct queue *s)
             else printf("That Taxi is Not in The Rank!\n");
             break;
         case 0:
+            /exit the program
             printf("Exiting...\n");
             break;
         default:
