@@ -1,10 +1,10 @@
 /*******************/
 /*Taxi Rank Program*/
 /*By Joshua Jacobs**/
+/******j010004b*****/
 /*******************/
 
 /*CHANGES
-CALL SOMETHING HERE TO REMOVE NULL VALS FROM THE QUEUE
 MAKE ADDITIONAL HEADER FILES SO YOU CAN INCLUDE THEM IN THE PROGRAM
 */
 
@@ -48,18 +48,17 @@ void push(struct queue *s , int num)
     }
 }
 
-int pop(struct queue *s) //CHANGE THIS SO THAT IS POPS FROM THE FRONT NOT THE BACK
+int pop(struct queue *s)
 { // -1 returned if queue empty.
     int i;
-	if (s -> top < MAX_SIZE)
+	if (s -> top <= MAX_SIZE)
 	{
         for (i = 1; i < MAX_SIZE; i++)
         {
-            s -> a[i - 1] = s -> a[i];
+            //reorder the rank so that the taxis are in position
             s -> n[i - 1] = s -> n[i];
         }
-            s -> top++;
-        //CALL SOMETHING HERE TO REMOVE NULL VALS FROM THE QUEUE
+            s -> top--;
             return(s -> a[s -> top]);
 	}
 	else return -1;
