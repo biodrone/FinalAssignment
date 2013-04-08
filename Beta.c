@@ -34,16 +34,17 @@ void push(struct queue *s , int num)
 
 int pop(struct queue *s)
 { // -1 returned if queue empty.
-    int i;
+    int i, popped;
 	if (s -> top > 0)
 	{
+        popped = s -> n[0];
         for (i = 1; i < MAX_SIZE; i++)
         {
             //reorder the rank so that the taxis are in position
             s -> n[i - 1] = s -> n[i];
         }
             s -> top--;
-            return(s -> a[s -> top]);
+            return(popped);
 	}
 	else return -1;
 }
@@ -85,7 +86,7 @@ int getTaxis()
 int findTaxi(int a[], int num_elements, int value)
 {
    int i;
-   for (i=0; i<num_elements; i++)
+   for (i = 0; i < num_elements; i++)
    {
 	 if (a[i] == value)
 	 {
@@ -97,7 +98,7 @@ int findTaxi(int a[], int num_elements, int value)
 
 int showMenu(struct queue *s)
 {
-    int selection, num, search, found;
+    int selection, num, search, found, popped;
     
     //show the menu structure
     printf("\n#####################\n");
@@ -122,10 +123,17 @@ int showMenu(struct queue *s)
             break;
         case 2:
             //pop a taxi
-            if (pop(s) == -1) {
+            popped = pop(s);
+            if (popped == -1) {
                 printf("The array is empty!\n");
             } else {
-                printf("Next Taxi: %d\n", s -> n[0]);
+                printf("Taxi %d Left.\n", popped);
+                //make sure there is a next taxi
+                if (s -> n[0] != 0) {
+                    printf("Next Taxi: %d\n", s -> n[0]);
+                } else {
+                    printf("The Rank is now Empty!");
+                }
             }
             break;
         case 3:
