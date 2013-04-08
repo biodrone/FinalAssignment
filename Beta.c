@@ -83,10 +83,10 @@ int getTaxis()
     return taxis;
 }
 
-int findTaxi(int a[], int num_elements, int value)
+int findTaxi(int a[], int value)
 {
    int i;
-   for (i = 0; i < num_elements; i++)
+   for (i = 0; i < MAX_SIZE; i++)
    {
 	 if (a[i] == value)
 	 {
@@ -145,10 +145,11 @@ int showMenu(struct queue *s)
             //search in the numbers array
             printf("What is the taxi's number?");
             scanf("%d", &search);
-            found = findTaxi(s -> n[], MAX_SIZE, search);
+        
+            found = findTaxi(s -> n[], search);
             if (found != -1)
             {
-                printf("That Taxi is Number %d\n", found + 1);
+                printf("That Taxi is in Position %d.\n", found + 1);
             }
             else printf("That Taxi is Not in The Rank!\n");
             break;
