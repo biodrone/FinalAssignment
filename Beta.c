@@ -22,8 +22,8 @@ void push(struct queue *s , int num)
     //make sure the queue isn't full
 	if(s -> top < MAX_SIZE) 
 	{
-		s -> a[s->top] = s -> top; //add taxi position
-        s -> n[s->top] = num; //add taxi number
+		s -> a[s -> top] = s -> top; //add taxi position
+        s -> n[s -> top] = num; //add taxi number
 		s -> top++; //increment top
 	}
     else
@@ -120,6 +120,7 @@ int showMenu(struct queue *s)
             printf("What is the taxi's number?\n");
             scanf("%d", &num);
             push(s, num);
+            printf("Taxi %d has Joined the Rank in Position %d.\n", num, s -> top);
             break;
         case 2:
             //pop a taxi
