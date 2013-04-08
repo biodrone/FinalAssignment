@@ -108,7 +108,7 @@ int showMenu(struct queue *s)
     printf("4 - Find a Taxi\n");
     printf("0 - Exit\n");
     printf("#####################\n");
-    printf("Please Enter a Menu Option: ");
+    printf("Enter an Option: ");
     //read the users choice
     scanf("%d", &selection);
     
