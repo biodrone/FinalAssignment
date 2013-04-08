@@ -8,24 +8,8 @@
 MAKE ADDITIONAL HEADER FILES SO YOU CAN INCLUDE THEM IN THE PROGRAM
 */
 
-#include <stdio.h>
-#define MAX_SIZE 6
-
-struct queue
-{
-	int a[MAX_SIZE]; //for position
-    int n[MAX_SIZE]; //for number
-	int top;
-};
-
-//function definitions
-void init(struct queue *s);
-void push(struct queue *s , int num);
-int pop(struct queue *s);
-void print (struct queue *s);
-int getTaxis();
-int showMenu(struct queue *s);
-int findTaxi();
+#include <conio.h>
+#include "defs.h"
 
 void init(struct queue *s)
 {
@@ -163,7 +147,7 @@ int showMenu(struct queue *s)
             printf("Exiting...\n");
             break;
         default:
-            printf("\nNot An Acceptable Option\nPlease Select Another!\n\n");
+            printf("\nNot An Acceptable Option,\nPlease Select Another!\n\n");
             break;
     }
     return selection;
@@ -191,13 +175,15 @@ int main()
     {
         
         selection = showMenu(&st1);
-        //make the press enter thing work in the beta
-        printf("Press enter to continue...");
-        char *cp, buff[80]; 
-    do //capture the enter key
-        {
-        cp = fgets(buff, sizeof(buff), stdin); 
-        } while (cp && *cp != '\n'); //check buffer and pointer
+        if (selection != 0) {
+            
+            printf("Press enter to continue...\n");
+            char cp;
+        do
+            {
+                cp = getche(); //captures the enter key
+            } while (cp != '\r');
+        }
     }
 	return 0;
 }
