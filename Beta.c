@@ -11,6 +11,13 @@ MAKE ADDITIONAL HEADER FILES SO YOU CAN INCLUDE THEM IN THE PROGRAM
 #include <stdio.h>
 #define MAX_SIZE 6
 
+struct queue
+{
+	int a[MAX_SIZE]; //for position
+    int n[MAX_SIZE]; //for number
+	int top;
+};
+
 //function definitions
 void init(struct queue *s);
 void push(struct queue *s , int num);
@@ -19,13 +26,6 @@ void print (struct queue *s);
 int getTaxis();
 int showMenu(struct queue *s);
 int findTaxi();
-
-struct queue
-{
-	int a[MAX_SIZE]; //for position
-    int n[MAX_SIZE]; //for number
-	int top;
-};
 
 void init(struct queue *s)
 {
