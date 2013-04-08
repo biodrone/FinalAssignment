@@ -4,10 +4,6 @@
 /******j010004b*****/
 /*******************/
 
-/*CHANGES
-MAKE ADDITIONAL HEADER FILES SO YOU CAN INCLUDE THEM IN THE PROGRAM
-*/
-
 #include <conio.h>
 #include "defs.h"
 
