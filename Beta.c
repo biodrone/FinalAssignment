@@ -51,7 +51,7 @@ void push(struct queue *s , int num)
 int pop(struct queue *s)
 { // -1 returned if queue empty.
     int i;
-	if (s -> top <= MAX_SIZE)
+	if (s -> top > 0)
 	{
         for (i = 1; i < MAX_SIZE; i++)
         {
@@ -137,8 +137,11 @@ int showMenu(struct queue *s)
             break;
         case 2:
             //pop a taxi
-            pop(s);
-            printf("Next Taxi: %d\n", s -> n[0]);
+            if (pop(s) == -1) {
+                printf("The array is empty!\n");
+            } else {
+                printf("Next Taxi: %d\n", s -> n[0]);
+            }
             break;
         case 3:
             //print the rank
@@ -156,7 +159,7 @@ int showMenu(struct queue *s)
             else printf("That Taxi is Not in The Rank!\n");
             break;
         case 0:
-            /exit the program
+            //exit the program
             printf("Exiting...\n");
             break;
         default:
