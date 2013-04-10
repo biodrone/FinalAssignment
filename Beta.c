@@ -4,7 +4,6 @@
 /******j010004b*****/
 /*******************/
 
-#include <conio.h>
 #include "defs.h"
 
 void init(struct queue *s)
@@ -180,17 +179,7 @@ int main()
     //run the menu while the user doesn't want to exit
     while (selection != 0)
     {
-        
         selection = showMenu(&st1);
-        if (selection != 0) {
-            
-            printf("Press enter to continue...\n");
-            char cp;
-        do
-            {
-                cp = getche(); //captures the enter key
-            } while (cp != '\r');
-        }
     }
 	return 0;
 }
